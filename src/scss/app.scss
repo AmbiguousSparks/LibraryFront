@@ -1,0 +1,112 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+	font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+	background: #141414;
+}
+
+.social-icon {
+	font-size: 30px;
+}
+.img-autocomplete {
+	width: 30%;
+}
+.logo {
+	width: 50px;
+	height: auto;
+}
+.autocomplete.dropdown {
+  background-color: #F8F8F8;
+  position: absolute;
+  box-shadow: 0 1px 3px 0px;
+  border-radius: 3px;
+  border: 1px solid #FAFAFA;
+  z-index: 1005;
+  right: 37.8%;
+  max-height: 450px;
+  display: none;
+  width: 23.8%;
+  top: 81%;
+  overflow-y: auto;
+}
+.autocomplete.dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.autocomplete.dropdown ul li {
+
+  padding: 4px 12px;
+}
+.autocomplete.dropdown ul li:focus,
+.autocomplete.dropdown ul li:hover {
+  background-color: #F0F0F0;
+  cursor: pointer;
+
+}
+
+.copyright {
+	background-color: #808080;
+	border: 1px solid;
+}
+.user-icon {
+	font-size: 30px;
+}
+
+.fa-facebook {
+	background: #3B5998;
+    color: white;
+}
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+.fa-twitter {
+	background: #55ACEE;
+    color: white;
+}
+.social-icon {
+	padding: 20px;
+    font-size: 30px;
+    width: 70px;
+    border-radius: 50%;
+    text-decoration: none;
+    margin: auto;
+}
+.social-icon:hover {
+  opacity: 0.7;
+}
+h1.Sh {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(0,0,0,85);
+}
+li.nav-item {
+	position: relative;
+}
+a.nav-link {
+	text-transform: uppercase;
+}
+a.nav-link:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+a.nav-link:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+@media (max-width: 576px){
+	.flex-sm-column {
+		flex-direction: column !important;
+	}
+	.w-sm-100 {
+		width: 100%;
+	}
+}
