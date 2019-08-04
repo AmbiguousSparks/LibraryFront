@@ -5,7 +5,11 @@ import {Author} from "../model/Author";
 
 export class BookController {
 	constructor() {
-	
+		this.inputSearch = document.getElementById("input-search");
+		this.initialize();
+	}
+	initialize() {
+		this.initEvents();
 	}
 	loadAll() {
 		let book = new Book();
@@ -20,6 +24,58 @@ export class BookController {
 		book.data.id = document.getElementById("idBook").value;
 		return book.getOne();
 	}
+	loadSearch(search) {
+		let book = new Book();
+		return book.search(search);
+	}
+	initEvents() {
+		let listSearch = document.getElementById("list-search");
+		let divSearch = document.getElementById("div-search");
+		this.inputSearch.addEventListener("keyup", e => {	
+			listSearch.innerHTML = ``;
+			if(this.inputSearch.value.length >= 3){
+				this.loadSearch(this.inputSearch.value).then(e=>{
+					if(this.validate(e)){
+						let i = 0;
+						e["books"].forEach(book => {							
+							if(i < 4){
+								let element = document.createElement("li");
+								let bookAux = new Book();
+								bookAux.fromJson(book);
+								element.innerHTML = 
+								`	<img class="img-autocomplete img-thumbnail mr-2" src="http://localhost/APILibrary/Covers/${bookAux.cover}">
+									<span class="">${bookAux.title}</span>
+								`;
+								divSearch.style.display = "block";
+								listSearch.appendChild(element);
+							}
+							i++;											
+						});
+						if(i > 5) {
+							let button = document.createElement("button");
+							button.setAttribute("class", "btn btn-primary w-100");
+							button.innerHTML = `Pesquisar todos ${i} livros`;
+							listSearch.appendChild(button);
+						}
+					}else{
+						let element = document.createElement("li");						
+						element.innerHTML = 
+						`	Não foram encontrados livros.
+						`;
+						divSearch.style.display = "block";
+						listSearch.appendChild(element);
+					}
+				});
+			}else {
+				divSearch.style.display = "none";
+			}
+		});
+		this.inputSearch.addEventListener("search", e => {
+			listSearch.innerHTML = "";
+			divSearch.style.display = "none";
+		});
+	}
+	
 	showBest() {
 		let response = this.loadBests();
 		response.then(e =>{
@@ -28,7 +84,7 @@ export class BookController {
 					let bookAux = new Book();
 					bookAux.fromJson(book);
 					let element = document.createElement("div");
-					element.setAttribute("class","card mr-1");
+					element.setAttribute("class","card");
 					element.innerHTML = 
 					`
 					<figure class="card-img">

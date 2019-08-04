@@ -10,7 +10,7 @@
 		<body>
 			<header>
 				<div class="fixed-top">
-					<nav class="navbar navbar-expand-md navbar-dark bg-gradient-dark">
+					<nav class="navbar navbar-expand-sm navbar-dark bg-gradient-dark">
 						
 						<a class="navbar-brand" href="/"><img class="img-fluid logo" src="imgs/logo.png"></a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" >
@@ -29,16 +29,11 @@
 										<a class="nav-link text-center" href="#">Contato</a>
 									</li>
 								</ul>
-								<form id="#form-search" action = "" method="" class="form-inline mr-auto">
-									<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar livros" aria-label="Search">
+								<form id="form-search" autocomplete="off" action = "" method="" class="form-inline mr-auto">
+									<input id="input-search" class="form-control mr-sm-2 w-sm-100" type="search" placeholder="Pesquisar livros" aria-label="Search">
 								</form>
-								<div class="autocomplete dropdown">
-									<ul id="">
-										<li class=""><img class="img-autocomplete img-thumbnail mr-2" src="http://localhost/APILibrary/Covers/15_ANOS_DE_MARINA.jpg">15 Anos de Marina (TURMA DA MONICA)</li>
-										<li class=""><img class="img-autocomplete img-thumbnail mr-2" src="http://localhost/APILibrary/Covers/15_ANOS_DE_MARINA.jpg">Teste HAHAHA</li>
-										<li class=""><img class="img-autocomplete img-thumbnail mr-2" src="http://localhost/APILibrary/Covers/15_ANOS_DE_MARINA.jpg">Teste HAHAHA</li>
-										<li class=""><img class="img-autocomplete img-thumbnail mr-2" src="http://localhost/APILibrary/Covers/15_ANOS_DE_MARINA.jpg">Teste HAHAHA</li>
-										
+								<div id="div-search" class="autocomplete dropdown">
+									<ul id="list-search">										
 									</ul>
 								</div>
 								<ul class="navbar-nav ml-auto">
@@ -83,7 +78,7 @@
 				<div class="jumbotron jumbotron-fluid">
 					<h1 class="display-4 Sh text-center">LIVROS EM DESTAQUE</h1>
 						<div class="container w-75 w-sm-100">
-							<div id="spotlight" class="d-flex flex-sm-column flex-md-row justify-content-md-center">
+							<div id="spotlight" class="d-flex flex-sm-column flex-md-row justify-content-sm-center">
 																												
 							</div>
 						</div>
