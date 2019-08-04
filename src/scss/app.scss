@@ -3,6 +3,7 @@
 body {
 	font: bold 14px/1.4 'Open Sans', arial, sans-serif;
 	background: #141414;
+	padding-top: 4.5rem;
 }
 
 .social-icon {
@@ -10,6 +11,9 @@ body {
 }
 .img-autocomplete {
 	width: 30%;
+}
+.img-login {
+	margin-left: 90px;
 }
 .limited {
 	white-space: nowrap;
@@ -119,7 +123,7 @@ a.nav-link:hover:after {
 		height: auto;
 	}
 	.w-sm-100 {
-		width: 100%;
+		width: 100% !important;
 	}
 }
 @media (max-width: 799px){

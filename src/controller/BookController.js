@@ -31,10 +31,14 @@ export class BookController {
 	initEvents() {
 		let listSearch = document.getElementById("list-search");
 		let divSearch = document.getElementById("div-search");
-		this.inputSearch.addEventListener("keyup", e => {	
-			listSearch.innerHTML = ``;
-			if(this.inputSearch.value.length >= 3){
-				this.loadSearch(this.inputSearch.value).then(e=>{
+		var typingTimer; //timer identifier
+		var doneTypingInterval = 300;
+		this.inputSearch.addEventListener("keyup", e => {
+			clearTimeout(typingTimer);
+			typingTimer = setTimeout(() => {
+				listSearch.innerHTML = ``;
+				if(this.inputSearch.value.length >= 3){				
+					this.loadSearch(this.inputSearch.value).then(e=>{
 					if(this.validate(e)){
 						let i = 0;
 						e["books"].forEach(book => {							
@@ -58,17 +62,19 @@ export class BookController {
 							listSearch.appendChild(button);
 						}
 					}else{
-						let element = document.createElement("li");						
-						element.innerHTML = 
-						`	Não foram encontrados livros.
-						`;
-						divSearch.style.display = "block";
-						listSearch.appendChild(element);
-					}
-				});
-			}else {
-				divSearch.style.display = "none";
-			}
+							let element = document.createElement("li");						
+							element.innerHTML = 
+							`	Não foram encontrados livros.
+							`;
+							divSearch.style.display = "block";
+							listSearch.appendChild(element);
+						}
+					});					
+				}else {
+					divSearch.style.display = "none";
+				}
+			}, doneTypingInterval);
+			
 		});
 		this.inputSearch.addEventListener("search", e => {
 			listSearch.innerHTML = "";

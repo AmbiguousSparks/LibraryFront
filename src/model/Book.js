@@ -30,7 +30,7 @@ export class Book extends Model{
 	}
 	getOne() {
 		return new Promise((s,f) => {
-			if(this.data.id) {
+			if(this.id) {
 				let request = this.request(`${this.baseUrl}?id=${this.data.id}`);
 				request.onload = e => {
 					let response = JSON.parse(request.responseText);
