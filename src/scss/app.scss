@@ -11,6 +11,16 @@ body {
 .img-autocomplete {
 	width: 30%;
 }
+.limited {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 200px;
+}
+.card-img{
+	width: 300px;
+	height: 441px;
+}
 .logo {
 	width: 50px;
 	height: auto;

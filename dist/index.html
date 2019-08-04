@@ -83,16 +83,8 @@
 				<div class="jumbotron jumbotron-fluid">
 					<h1 class="display-4 Sh text-center">LIVROS EM DESTAQUE</h1>
 						<div class="container w-75 w-sm-100">
-							<div class="d-flex flex-sm-column flex-md-row justify-content-md-center">
-								<div class="card mr-1">
-								  <img class="card-img-top" src="http://localhost/APILibrary/Covers/15_ANOS_DE_MARINA.jpg" alt="Card image cap">
-								  <div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-									<a href="#" class="btn btn-primary">Go somewhere</a>
-								  </div>
-								</div>												
-																					
+							<div id="spotlight" class="d-flex flex-sm-column flex-md-row justify-content-md-center">
+																												
 							</div>
 						</div>
 					</div>
@@ -109,5 +101,10 @@
 				</div>
 			</footer>
 			<script src="./bundle.js"></script>
+			<script>
+				window.onload = e =>{
+					window.bookController.showBest();
+				}
+			</script>
 		</body>
 	</html>

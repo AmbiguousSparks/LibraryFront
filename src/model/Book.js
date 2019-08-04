@@ -16,6 +16,18 @@ export class Book extends Model{
 			}
 		});
 	}
+	getBests() {
+		return new Promise((s,f) => {			
+			let request = this.request(`${this.baseUrl}?bestBooks=1`);
+			request.onload = e => {
+				let response = JSON.parse(request.responseText);
+				s(response);
+			}
+			request.onerror = e=> {
+				f(e);
+			}			
+		});
+	}
 	getOne() {
 		return new Promise((s,f) => {
 			if(this.data.id) {
@@ -50,7 +62,7 @@ export class Book extends Model{
 	}
 	request(url) {
 		let xml = new XMLHttpRequest();
-		xml.open("GET", url, true);
+		xml.open("GET", url);
 		xml.send();
 		return xml;		
 	}
