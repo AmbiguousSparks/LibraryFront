@@ -49,31 +49,36 @@
 			</header>
 			<main role="main" class="container">
 				<div class="jumbotron w-50 w-sm-100 mx-auto">
-					<form id="form-login" class=" allign-items-center col">
-						<img class="img-login w-50 d-flex" src="imgs/logo.png">
-						<div class="form-group mt-1 row">
-							<label class="col-sm-2 col-form-label" for="email-login">E-mail:</label>
-							<div class="col-sm-10">
-								<input type="email" required class="form-control" placeholder="email@example.com" id="email-login" name="email-login">
-							</div>
+					<form id="form-signin">
+						<div class="form-group">
+							<label for="name-signin">Nome: </label>
+							<input required type="text" id="name-signin" name="name-signin" placeholder="Nome completo" class="form-control">
+							<div class="invalid-feedback">
+								Nome inválido!
+							  </div>
 						</div>
-						<div class="form-group row">
-							<label for="password-login" class="col-sm-2 col-form-label">Senha:</label>
-							<div class="col-sm-10">
-							  <input type="password" required name="password-login" class="form-control" id="password-login" placeholder="***********">
-							</div>
-						  </div>
-						  <div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" name="remember" id="remember">
-							  <label class="custom-control-label ml-auto" for="remember">Manter-me conectado</label>
-							</div>					
-							<div class="col-sm-12 text-center mx-auto">	
-								<button id="button-login" class="btn btn-success float-right my-2 col-sm-4">Entrar</button>
-							</div>
-						  <div class="mt-5">
-								<span class="col">Não tem conta?</span><br>
-								<a class="col" href="cadastro.html">Clique aqui e se inscreva</a>
-							</div>
+						<div class="form-group">
+							<label for="email-signin">E-mail: </label>
+							<input required type="email" id="email-signin" name="email-signin" placeholder="example@example.com" class="form-control">
+							<div class="invalid-feedback">
+								E-mail inválido!
+							  </div>
+						</div>
+						<div class="form-group">
+							<label for="password-signin">Senha: </label>
+							<input required type="password" id="password-signin" name="password-signin" placeholder="**********" class="form-control">
+							<div class="invalid-feedback">
+								Senha inválida!
+							  </div>
+						</div>
+						<div class="form-group">
+							<label for="repassword-signin">Repita a senha: </label>
+							<input required type="password" id="repassword-signin" name="repassword-signin" placeholder="**********" class="form-control">
+							<div class="invalid-feedback">
+								Senha não coincidem!
+							  </div>
+						</div>
+						<button id="button-signin" class="btn btn-outline-success float-right" type="submit">Cadastrar</button>
 					</form>
 				</div>
 			</main>
@@ -90,4 +95,4 @@
 			</footer>
 			<script src="./bundle.js"></script>			
 		</body>
-	</html>			
+	</html>

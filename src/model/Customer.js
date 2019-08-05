@@ -25,10 +25,10 @@ export class Customer extends Model{
 			if(this.password && this.email) {
 				let req = this.request(this.baseUrl, "POST", this.toFormData());
 				req.onload = e => {
-					s(JSON.parse(e.responseText));
+					s(JSON.parse(req.responseText));
 				}
 				req.onerror = e => {
-					f(e);
+					f("Error");
 				}
 			}
 		});
@@ -43,8 +43,8 @@ export class Customer extends Model{
 	}
 	request(url, method, data = {}) {
 		let xml = new XMLHttpRequest();
-		xml.open("GET", url);
-		xml.send();
+		xml.open(method, url);
+		xml.send(data);
 		return xml;		
 	}
 	get id() {
