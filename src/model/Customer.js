@@ -3,7 +3,7 @@ import {Model} from "./Model";
 export class Customer extends Model{
 	constructor(){
 		super();
-		this.baseUrl = "http://localhost/APILibrary/Users/initial.php";
+		this.baseUrl = "https://long-tongued-boresi.000webhostapp.com/Users/initial.php";
 	}
 	login() {
 		return new Promise((s,f) => {

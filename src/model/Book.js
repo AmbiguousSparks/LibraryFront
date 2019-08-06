@@ -2,7 +2,7 @@ import {Model} from "./Model";
 export class Book extends Model{
 	constructor(){
 		super();
-		this.baseUrl = "http://localhost/APILibrary/Books/initial.php";
+		this.baseUrl = "https://long-tongued-boresi.000webhostapp.com/Books/initial.php";
 	}
 	getAll() {
 		return new Promise((s,f)=> {
