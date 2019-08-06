@@ -4,11 +4,33 @@ export class UserController {
 	constructor() {
 		this.formLogin = (document.getElementById("form-login")) ? document.getElementById("form-login") : false;
 		this.formSignin = (document.getElementById("form-signin")) ? document.getElementById("form-signin") : false;
+		this.divProfile = (document.getElementById("profile-card")) ? document.getElementById("profile-card") : false;
+		if(this.divProfile){
+			this.divProfile.style.display = "none";
+		}
+		this.currentPage = window.location.pathname;
 		this.initialize();
 	}
 	initialize(){
-		this.initEvents();
+		this.initEvents();		
 		this.verifyLogin();
+		if(this.currentPage == "/perfil.html"){
+			let customer = new Customer();
+			customer.id = this.getCookie("id");
+			customer.getOne().then( e =>{				
+				if(e.code == 1){
+					customer.fromJson(e.customer);				
+					this.loadProfile(customer);
+				}				
+			});
+		}
+	}
+	loadProfile(customer) {
+		
+		this.divProfile.querySelector("#profile-name").innerHTML = customer.name;
+		this.divProfile.querySelector("#profile-email").innerHTML = customer.email;
+		this.divProfile.style.display = "block";
+		
 	}
 	verifyLogin() {		
 		if(this.getCookie("id")) {			

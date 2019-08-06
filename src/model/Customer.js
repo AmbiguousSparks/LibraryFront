@@ -20,6 +20,22 @@ export class Customer extends Model{
 			}
 		});
 	}
+	getOne() {
+		return new Promise((s, f) => {
+			if(this.id) {
+				let req = this.request(`${this.baseUrl}?id=${this.id}`, "GET");
+				req.onload = e => {
+					s(JSON.parse(req.responseText));
+				}
+				req.onerror = e => {
+					f(e);
+				}
+			}else {
+				f("Error");
+			}
+		});
+		
+	}
 	create() {
 		return new Promise((s, f) => {
 			if(this.password && this.email) {

@@ -6,10 +6,14 @@ import {Author} from "../model/Author";
 export class BookController {
 	constructor() {
 		this.inputSearch = document.getElementById("input-search");
+		this.currentPage = window.location.pathname;
 		this.initialize();
 	}
 	initialize() {
 		this.initEvents();
+		if(this.currentPage == "/"){
+			this.showBest();
+		}
 	}
 	loadAll() {
 		let book = new Book();
